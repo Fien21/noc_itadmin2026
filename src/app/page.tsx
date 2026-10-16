@@ -35,6 +35,9 @@ export default function Home() {
     const [isHydrating, setIsHydrating] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
+  const [loginError, setLoginError] = useState('');
+  const [showLoginPassword, setShowLoginPassword] = useState(false);
+  const [isAuthenticating, setIsAuthenticating] = useState(false);
   const [clients, setClients] = useState<ClientData[]>([]);
   const [monitoring, setMonitoring] = useState<MonitoringData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -127,6 +130,8 @@ export default function Home() {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsAuthenticating(true);
+    setLoginError('');
     try {
       const res = await fetch('/api/auth', {
         method: 'POST',
@@ -137,10 +142,16 @@ export default function Home() {
         setIsAuthenticated(true);
         addNotification('Admin logged in successfully');
       } else {
-        alert('Invalid password. Hint: Try itadmin123');
+        setLoginError('Invalid administrator credentials.');
       }
     } catch {
-      if (password === 'itadmin123') setIsAuthenticated(true);
+      if (password === 'itadmin123') {
+        setIsAuthenticated(true);
+      } else {
+        setLoginError('Authentication failed. Please verify credentials.');
+      }
+    } finally {
+      setIsAuthenticating(false);
     }
   };
 
@@ -289,27 +300,164 @@ export default function Home() {
     };
   }, [isAuthenticated]);
   if (isHydrating) {
-    return <div className="min-h-screen bg-surface"></div>;
+    return (
+      <div className="min-h-screen bg-[#060913] flex items-center justify-center">
+        <div className="w-8 h-8 border-2 border-indigo-500/20 border-t-indigo-500 rounded-full animate-spin"></div>
+      </div>
+    );
   }
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-surface flex items-center justify-center font-body-md">
-        <form onSubmit={handleLogin} className="bg-surface-container-low p-space-xl rounded-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] flex flex-col gap-space-md w-96 border border-surface-container">
-          <div className="flex items-center gap-space-sm mb-space-sm">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-              <span className="material-symbols-outlined text-on-primary">dns</span>
+      <div className="min-h-screen relative overflow-hidden bg-[#060913] text-slate-100 flex flex-col justify-between font-body-md select-none">
+        {/* Dynamic Background Glow Orbs */}
+        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[720px] h-[500px] bg-indigo-600/20 rounded-full blur-[140px] pointer-events-none animate-pulse-glow" />
+        <div className="absolute -bottom-40 -left-40 w-[550px] h-[550px] bg-sky-500/12 rounded-full blur-[160px] pointer-events-none" />
+        <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[150px] pointer-events-none" />
+
+        {/* High-Tech Cyber Grid & Dot Matrix Overlay */}
+        <div
+          className="absolute inset-0 noc-grid-pattern opacity-70 pointer-events-none"
+          style={{
+            maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 25%, rgba(0,0,0,0) 80%)',
+            WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 25%, rgba(0,0,0,0) 80%)'
+          }}
+        />
+        <div className="absolute inset-0 noc-grid-dots opacity-40 pointer-events-none" />
+
+        {/* Top NOC Telemetry Bar */}
+        <header className="relative z-10 w-full px-6 py-4 flex items-center justify-between border-b border-indigo-500/10 bg-[#060913]/60 backdrop-blur-md">
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/80 border border-slate-800 text-xs font-mono text-slate-300">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span className="hidden sm:inline text-slate-400">STATUS:</span>
+              <span className="text-emerald-400 font-semibold">GATEWAY OPERATIONAL</span>
             </div>
-            <span className="font-headline-sm text-headline-sm font-semibold text-on-surface">RetailSys NOC</span>
+            <span className="hidden md:inline text-xs font-mono text-slate-500">|</span>
+            <span className="hidden md:inline text-xs font-mono text-slate-400 tracking-wider">TLS 1.3 SECURE PORT</span>
           </div>
-          <div>
-            <label className="text-label-md font-medium text-on-surface mb-2 block">Secure IT Login</label>
-            <input type="password" required value={password} onChange={e => setPassword(e.target.value)} className="w-full px-4 py-2 rounded-lg border border-outline-variant bg-surface text-on-surface outline-none focus:border-primary focus:ring-1 transition-all" placeholder="Enter admin password..." />
+
+          <div className="flex items-center gap-4 text-xs font-mono text-slate-400">
+            <span className="hidden sm:flex items-center gap-1.5 text-indigo-400">
+              <span className="material-symbols-outlined text-sm">security</span>
+              <span>NODE: ALPHA-NOC-01</span>
+            </span>
+            <span className="bg-slate-900/80 border border-slate-800 px-3 py-1 rounded-full text-slate-300">
+              {currentTime.toLocaleTimeString([], { hour12: false })} UTC
+            </span>
           </div>
-          <button type="submit" className="w-full py-2 bg-primary text-on-primary font-medium rounded-lg hover:bg-primary-container transition-colors mt-2">
-            Authenticate
-          </button>
-        </form>
+        </header>
+
+        {/* Center Login Container */}
+        <main className="relative z-10 flex-1 flex items-center justify-center p-4 sm:p-6 my-auto">
+          <div className="relative w-full max-w-md">
+            {/* Ambient Card Backlight Halo */}
+            <div className="absolute -inset-1.5 bg-gradient-to-r from-indigo-500/25 via-purple-500/15 to-sky-500/25 rounded-3xl blur-2xl opacity-75 pointer-events-none -z-10" />
+
+            {/* Frosted Glass Login Box */}
+            <div className="relative bg-[#0b1021]/80 backdrop-blur-2xl rounded-2xl p-7 sm:p-9 border border-indigo-500/20 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),0_0_40px_rgba(79,70,229,0.15)] overflow-hidden">
+              {/* Top Neon Highlight Line */}
+              <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-indigo-400/80 to-transparent" />
+
+              {/* Branding Header */}
+              <div className="flex flex-col items-center text-center mb-6">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-indigo-700 flex items-center justify-center shadow-[0_0_30px_rgba(99,102,241,0.55)] border border-indigo-300/30 mb-3.5">
+                  <span className="material-symbols-outlined text-white text-3xl">dns</span>
+                </div>
+                <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">RetailSys NOC</h1>
+                <p className="text-xs text-slate-400 mt-1 font-mono tracking-wide">IT Management & Telemetry Portal</p>
+                <div className="mt-2.5 inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-[11px] font-mono text-indigo-300">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span>SYSTEM AUTHENTICATION</span>
+                </div>
+              </div>
+
+              {/* Form */}
+              <form onSubmit={handleLogin} className="flex flex-col gap-4">
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <label className="text-xs font-mono font-medium text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
+                      <span className="material-symbols-outlined text-xs text-indigo-400">key</span>
+                      Admin Passkey
+                    </label>
+                    <span className="text-[11px] font-mono text-slate-500">Authorized Personnel</span>
+                  </div>
+
+                  <div className="relative flex items-center">
+                    <span className="material-symbols-outlined absolute left-3.5 text-slate-400 text-lg pointer-events-none">
+                      lock
+                    </span>
+                    <input
+                      type={showLoginPassword ? 'text' : 'password'}
+                      required
+                      value={password}
+                      onChange={e => {
+                        setPassword(e.target.value);
+                        if (loginError) setLoginError('');
+                      }}
+                      className="w-full pl-10 pr-11 py-2.5 bg-[#060914]/90 border border-slate-700/80 rounded-xl text-white placeholder-slate-500 text-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/25 outline-none transition-all font-body-md"
+                      placeholder="Enter administrator password..."
+                      autoFocus
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowLoginPassword(!showLoginPassword)}
+                      tabIndex={-1}
+                      aria-label={showLoginPassword ? "Hide password" : "Show password"}
+                      className="absolute right-3 text-slate-400 hover:text-slate-200 transition-colors p-1"
+                    >
+                      <span className="material-symbols-outlined text-lg block">
+                        {showLoginPassword ? 'visibility_off' : 'visibility'}
+                      </span>
+                    </button>
+                  </div>
+                </div>
+
+                {loginError && (
+                  <div className="flex items-center gap-2 p-3 rounded-xl bg-red-950/60 border border-red-800/60 text-red-300 text-xs">
+                    <span className="material-symbols-outlined text-base text-red-400 shrink-0">error</span>
+                    <span>{loginError}</span>
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={isAuthenticating}
+                  className="w-full mt-2 py-3 bg-gradient-to-r from-indigo-600 via-indigo-500 to-indigo-600 hover:from-indigo-500 hover:to-indigo-400 active:scale-[0.99] text-white font-medium rounded-xl shadow-[0_0_25px_rgba(99,102,241,0.4)] hover:shadow-[0_0_35px_rgba(99,102,241,0.55)] transition-all flex items-center justify-center gap-2 text-sm disabled:opacity-60 cursor-pointer"
+                >
+                  {isAuthenticating ? (
+                    <>
+                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                      <span>Verifying Credentials...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span className="material-symbols-outlined text-lg">verified_user</span>
+                      <span>Authenticate Session</span>
+                    </>
+                  )}
+                </button>
+              </form>
+
+              {/* Card Bottom Meta */}
+              <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                <span className="flex items-center gap-1.5">
+                  <span className="material-symbols-outlined text-xs text-indigo-400">verified</span>
+                  <span>256-Bit NOC Auth</span>
+                </span>
+                <span className="text-slate-500 hover:text-slate-400 transition-colors cursor-help" title="Default administrator key: itadmin123">
+                  Default: itadmin123
+                </span>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        {/* Footer */}
+        <footer className="relative z-10 w-full px-6 py-4 border-t border-indigo-500/10 text-center text-xs font-mono text-slate-500 bg-[#060913]/60 backdrop-blur-md flex flex-col sm:flex-row items-center justify-between gap-2">
+          <span>&copy; {new Date().getFullYear()} RetailSys NOC. All rights reserved.</span>
+          <span className="text-slate-400">Restricted Access &bull; All Sessions Monitored &amp; Logged</span>
+        </footer>
       </div>
     );
   }
