@@ -28,7 +28,8 @@ export async function POST(request: Request) {
       maxDevices: client.maxDevices || 1,
       name: client.name,
       branch: client.branch,
-      contactNumber: client.contactNumber
+      contactNumber: client.contactNumber,
+      devices: Array.isArray(client.devices) ? client.devices : []
     });
   } catch (error) {
     console.error('Error in sync route:', error);
