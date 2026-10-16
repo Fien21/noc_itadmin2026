@@ -25,7 +25,10 @@ export async function POST(request: Request) {
       success: true, 
       status: client.status,
       expires: client.expires,
-      maxDevices: client.maxDevices || 1
+      maxDevices: client.maxDevices || 1,
+      name: client.name,
+      branch: client.branch,
+      contactNumber: client.contactNumber
     });
   } catch (error) {
     console.error('Error in sync route:', error);
