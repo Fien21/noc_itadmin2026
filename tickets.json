@@ -1,0 +1,68 @@
+[
+  {
+    "id": "TKT-YH3888Z",
+    "licenseKey": "SYS-1369F267-AF3CFE94-CC27D9B4",
+    "subject": "zsxczxc",
+    "message": "zxczxc",
+    "senderName": "aj",
+    "senderRole": "CASHIER",
+    "status": "OPEN",
+    "createdAt": "2026-10-05T09:23:44.446Z",
+    "reply": null
+  },
+  {
+    "id": "TKT-ALW2X1K",
+    "licenseKey": "SYS-1369F267-AF3CFE94-CC27D9B4",
+    "subject": "asda",
+    "message": "dasda",
+    "senderName": "aj",
+    "senderRole": "CASHIER",
+    "status": "OPEN",
+    "createdAt": "2026-10-05T09:27:44.984Z",
+    "reply": null
+  },
+  {
+    "id": "TKT-58AEXT5",
+    "licenseKey": "SYS-F776E330-04CBC8AF-9F4C86ED",
+    "subject": "asdasd",
+    "message": "dasdasd",
+    "senderName": "aj",
+    "senderRole": "CASHIER",
+    "status": "OPEN",
+    "createdAt": "2026-10-05T09:36:38.566Z",
+    "reply": null
+  },
+  {
+    "id": "TKT-57PZ0ML",
+    "licenseKey": "SYS-F776E330-04CBC8AF-9F4C86ED",
+    "subject": "asdasd",
+    "message": "asdasds",
+    "senderName": "System Admin",
+    "senderRole": "ADMIN",
+    "status": "OPEN",
+    "createdAt": "2026-10-05T09:36:54.684Z",
+    "reply": null
+  },
+  {
+    "id": "TKT-DHONTBK",
+    "licenseKey": "SYS-0B5479D1-4222759B-8E2A78B1",
+    "subject": "asdasd",
+    "message": "dasdasd",
+    "senderName": "System IT",
+    "senderRole": "ADMIN",
+    "status": "OPEN",
+    "createdAt": "2026-10-05T09:37:05.719Z",
+    "reply": null
+  },
+  {
+    "id": "TKT-TNHRPTE",
+    "licenseKey": "SYS-F776E330-04CBC8AF-9F4C86ED",
+    "subject": "asdasd",
+    "message": "asdasd",
+    "senderName": "System Admin",
+    "senderRole": "ADMIN",
+    "status": "OPEN",
+    "createdAt": "2026-10-05T09:41:45.104Z",
+    "reply": null
+  }
+]

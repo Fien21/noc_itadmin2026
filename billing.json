@@ -1,0 +1,13 @@
+[
+  {
+    "id": "INV-PXN5PT6",
+    "clientId": "1791192974379",
+    "clientName": "Arnel James ",
+    "licenseKey": "SYS-0B5479D1-4222759B-8E2A78B1",
+    "type": "ADD_TERMINAL",
+    "details": "Added 1 extra terminal(s). Synced to expiry: 10/6/2026 (1 days left).",
+    "amount": 6.9,
+    "date": "2026-10-06T04:54:36.363Z",
+    "status": "PAID"
+  }
+]

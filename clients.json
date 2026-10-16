@@ -1,0 +1,108 @@
+[
+  {
+    "id": "1792064042837",
+    "name": "asdasdas",
+    "organization": "dasdas",
+    "company": "",
+    "branch": "asdasd",
+    "contactNumber": "341231232",
+    "maxDevices": 5,
+    "status": "active",
+    "systemType": "POS",
+    "lat": 14.5995,
+    "lng": 120.9842,
+    "key": "SYS-90D88388-8E0EB18C-646374A2",
+    "expires": "2027-10-15T11:34:02.838Z",
+    "amountPaid": 6720
+  },
+  {
+    "id": "1792063685882",
+    "name": "asdfasdf",
+    "organization": "asdasdas",
+    "company": "",
+    "branch": "sdgsdgsdf",
+    "contactNumber": "12312312",
+    "maxDevices": 5,
+    "status": "active",
+    "systemType": "POS",
+    "lat": 14.5995,
+    "lng": 120.9842,
+    "key": "SYS-8A2638BD-95A322B0-43217A5D",
+    "expires": "2027-10-15T11:28:05.883Z",
+    "amountPaid": 6720
+  },
+  {
+    "id": "1791616559873",
+    "name": "arnel",
+    "organization": "kcc",
+    "company": "",
+    "branch": "aj store",
+    "contactNumber": "3432423423",
+    "maxDevices": 5,
+    "status": "active",
+    "systemType": "POS",
+    "lat": 14.5995,
+    "lng": 120.9842,
+    "key": "SYS-F8EABEB2-1D3F9EC0-7DB0618E",
+    "expires": "2027-10-10T07:15:59.874Z",
+    "amountPaid": 6720,
+    "devices": [
+      {
+        "id": "DEV-8m0hxs5rz7afp5g6kfp5ed",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+        "createdAt": "2026-10-10T07:16:45.212Z"
+      }
+    ],
+    "metrics": {
+      "cpu": "0.0",
+      "memory": "87.3",
+      "uptime": 5819.984,
+      "lastSeen": "2026-10-10T07:57:29.168Z"
+    }
+  },
+  {
+    "id": "1791457558336",
+    "name": "dasdasdas",
+    "organization": "dasdasd",
+    "company": "",
+    "branch": "dfasda",
+    "contactNumber": "12312312",
+    "maxDevices": 5,
+    "status": "revoked",
+    "systemType": "POS",
+    "lat": 14.5995,
+    "lng": 120.9842,
+    "key": "SYS-EEE57041-2692C2A8-4B294E91",
+    "expires": "2027-10-08T11:05:58.337Z",
+    "amountPaid": 6720
+  },
+  {
+    "id": "1791353933164",
+    "name": "asdasd",
+    "organization": "asdasd",
+    "company": "",
+    "branch": "asdasd",
+    "contactNumber": "123123",
+    "maxDevices": 5,
+    "status": "revoked",
+    "systemType": "POS",
+    "lat": 14.5995,
+    "lng": 120.9842,
+    "key": "SYS-B156AFFC-703912D7-F8F50280",
+    "expires": "2027-10-07T06:18:53.164Z",
+    "amountPaid": 6720,
+    "devices": [
+      {
+        "id": "DEV-mqxojufgwvdabahvdgxnr",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+        "createdAt": "2026-10-07T06:18:58.471Z"
+      }
+    ],
+    "metrics": {
+      "cpu": "0.0",
+      "memory": "85.2",
+      "uptime": 3373.296,
+      "lastSeen": "2026-10-10T07:16:42.484Z"
+    }
+  }
+]
