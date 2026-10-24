@@ -1,4 +1,12 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RetailSys NOC - Admin Site System
+
+Central Management Hub, Telemetry, Client Management & License Portal.
+
+**Developer & Creator:** FieenDevAj
+
+---
+
+This is a [Next.js](https://nextjs.org) project.
 
 ## Getting Started
 

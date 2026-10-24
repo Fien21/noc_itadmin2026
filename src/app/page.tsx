@@ -366,6 +366,10 @@ export default function Home() {
                 </div>
                 <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">RetailSys NOC</h1>
                 <p className="text-xs text-slate-400 mt-1 font-mono tracking-wide">IT Management & Telemetry Portal</p>
+                <div className="mt-1.5 flex items-center gap-1.5 text-[11px] font-mono text-indigo-300/90">
+                  <span className="material-symbols-outlined text-[13px] text-indigo-400">code</span>
+                  <span>Developer &amp; Creator: <strong className="text-white font-semibold">FieenDevAj</strong></span>
+                </div>
                 <div className="mt-2.5 inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-[11px] font-mono text-indigo-300">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                   <span>SYSTEM AUTHENTICATION</span>
@@ -445,8 +449,9 @@ export default function Home() {
                   <span className="material-symbols-outlined text-xs text-indigo-400">verified</span>
                   <span>256-Bit NOC Auth</span>
                 </span>
-                <span className="text-slate-500 hover:text-slate-400 transition-colors cursor-help" title="Default administrator key: itadmin123">
-
+                <span className="flex items-center gap-1 text-slate-400">
+                  <span className="material-symbols-outlined text-xs text-indigo-400">terminal</span>
+                  <span>Creator: <strong className="text-slate-200">FieenDevAj</strong></span>
                 </span>
               </div>
             </div>
@@ -455,8 +460,8 @@ export default function Home() {
 
         {/* Footer */}
         <footer className="relative z-10 w-full px-6 py-4 border-t border-indigo-500/10 text-center text-xs font-mono text-slate-500 bg-[#060913]/60 backdrop-blur-md flex flex-col sm:flex-row items-center justify-between gap-2">
-          <span>&copy; {new Date().getFullYear()} RetailSys NOC. All rights reserved.</span>
-          <span className="text-slate-400">Restricted Access &bull; All Sessions Monitored &amp; Logged</span>
+          <span>&copy; {new Date().getFullYear()} RetailSys NOC &bull; Built &amp; Maintained by <span className="text-indigo-400 font-semibold">FieenDevAj</span></span>
+          <span className="text-slate-400">Developer &amp; Creator: <strong className="text-slate-200">FieenDevAj</strong> &bull; All Sessions Monitored &amp; Logged</span>
         </footer>
       </div>
     );
@@ -592,15 +597,15 @@ export default function Home() {
           </div>
           <div className="flex items-center justify-between pt-space-xs">
             <div className="flex items-center gap-space-xs">
-              <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-                <span className="material-symbols-outlined text-on-primary text-[18px]">person</span>
+              <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-sm">
+                <span className="material-symbols-outlined text-on-primary text-[18px]">terminal</span>
               </div>
               <div className="leading-tight">
-                <div className="font-body-sm text-body-sm font-semibold text-on-surface">AJ Developer</div>
-                <div className="font-data-mono-sm text-data-mono-sm text-on-surface-variant">Superadmin</div>
+                <div className="font-body-sm text-body-sm font-semibold text-on-surface">FieenDevAj</div>
+                <div className="font-data-mono-sm text-data-mono-sm text-primary font-medium">Developer &amp; Creator</div>
               </div>
             </div>
-            <button onClick={handleLogout} className="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-error transition-colors">
+            <button onClick={handleLogout} className="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-error transition-colors" title="Logout Session">
               <span className="material-symbols-outlined text-[18px]">logout</span>
             </button>
           </div>
@@ -625,6 +630,10 @@ export default function Home() {
               <div className="flex items-center gap-space-xs px-space-xs py-0.5 rounded bg-surface-container-low">
                 <span className="w-1.5 h-1.5 rounded-full bg-secondary"></span>
                 <span className="font-data-mono-sm text-data-mono-sm text-secondary">99.98% Uptime</span>
+              </div>
+              <div className="flex items-center gap-space-xs px-space-xs py-0.5 rounded bg-surface-container-low border border-surface-container">
+                <span className="material-symbols-outlined text-[14px] text-primary">terminal</span>
+                <span className="font-data-mono-sm text-data-mono-sm text-on-surface-variant">Creator: <span className="font-semibold text-on-surface">FieenDevAj</span></span>
               </div>
             </div>
           </div>
@@ -2119,7 +2128,7 @@ export default function Home() {
                     </thead>
                     <tbody className="font-body-sm">
                       <tr className="border-b border-surface-container">
-                        <td className="p-space-sm">AJ Developer (Superadmin)</td>
+                        <td className="p-space-sm font-medium">FieenDevAj (Developer &amp; Creator)</td>
                         <td className="p-space-sm font-data-mono-sm text-primary">UPDATE_GLOBAL_BROADCAST</td>
                         <td className="p-space-sm text-on-surface-variant">10 mins ago</td>
                       </tr>
@@ -2278,6 +2287,18 @@ export default function Home() {
                 </div>
               </div>
             )}
+
+            {/* Portal Footer */}
+            <footer className="mt-8 pt-6 pb-4 border-t border-surface-container flex flex-col sm:flex-row items-center justify-between gap-3 text-body-sm text-on-surface-variant">
+              <div className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-primary text-[18px]">terminal</span>
+                <span>RetailSys NOC &bull; Developed &amp; Created by <strong className="text-on-surface font-semibold">FieenDevAj</strong></span>
+              </div>
+              <div className="flex items-center gap-4 font-data-mono-sm text-data-mono-sm">
+                <span className="px-2 py-0.5 rounded bg-surface-container-low border border-surface-container">v4.18.2-PRO</span>
+                <span>&copy; {new Date().getFullYear()} FieenDevAj. All rights reserved.</span>
+              </div>
+            </footer>
 
           </div>
         </main>

@@ -4,7 +4,9 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "System IT | Admin Portal",
-  description: "Central Management Hub for all systems",
+  description: "Central Management Hub for all systems - Developed and Created by FieenDevAj",
+  authors: [{ name: "FieenDevAj" }],
+  creator: "FieenDevAj",
 };
 
 export default function RootLayout({
